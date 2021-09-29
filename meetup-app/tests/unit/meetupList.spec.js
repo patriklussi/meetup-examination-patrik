@@ -9,7 +9,7 @@ Docker-container på en molntjänst (Heroku). Användare ska kunna:
 
 
 
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount,createLocalVue } from '@vue/test-utils'
 import MeetupList from '@/components/MeetupList.vue'
 import 'jest-localstorage-mock';
 
@@ -17,7 +17,7 @@ import VueRouter from 'vue-router'
 
 const localVue = createLocalVue()
 localVue.use(VueRouter)
-const router = new VueRouter()
+
 
 
 
@@ -31,9 +31,9 @@ beforeEach(()=>{
         meetupList:data,
       }
     
-    }
+    },
     localVue,
-    router
+    router,
   });
   localStorage.clear();
   // and reset all mocks
@@ -59,12 +59,20 @@ describe('MeetupList', () => {
   it("should be able to add meetup to localstorage", async()=>{
     const KEY = "meetup";
     const VALUE = {name:"My Hero con",date:"2022-05-20"};
-      const addButton = wrapper.find("#addButton");
+      const addButton = wrapper.find(".addButton");
       addButton.trigger("");
       expect(localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);
       expect(localStorage.__store__[KEY]).toBe(VALUE);
 
   });
 
-  it("")
+  it("Should go to MyProfile page with router", async()=>{
+    const $route = {
+      name:MyProfile,
+    }
+    const pageToggleButton = wrapper.find("#pageToggleButton");
+    pageToggleButton.trigger("")
+
+    expect(wrapper.vm.$route.name).toBe($route.name);
+  });
 })
