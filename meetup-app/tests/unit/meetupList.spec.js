@@ -13,13 +13,27 @@ import { shallowMount } from '@vue/test-utils'
 import MeetupList from '@/components/MeetupList.vue'
 import 'jest-localstorage-mock';
 
+import VueRouter from 'vue-router'
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
+const router = new VueRouter()
+
+
+
+
 let wrapper,data;
 beforeEach(()=>{
-  data = [ {name:"My Hero con",date:2022-05-20},{name:"Comic con",date:2021-11-21},{name:"Twitch-con",date:2022-06-12,name:"Worlds 2021",date:2021-10-05} ]
+  data = [ {name:"My Hero con",date:"2022-05-20"},{name:"Comic con",date:"2021-11-21"},{name:"Twitch-con",date:"2022-06-12",name:"Worlds 2021",date:"2021-10-05"} ]
   wrapper = shallowMount("MeetupList",{
     data:()=>{
-      meetupList:data,
+      return {
+        meetupList:data,
+      }
+    
     }
+    localVue,
+    router
   });
   localStorage.clear();
   // and reset all mocks
@@ -28,6 +42,7 @@ beforeEach(()=>{
   // clearAllMocks will impact your other mocks too, so you can optionally reset individual mocks instead:
   localStorage.setItem.mockClear();
 
+  
 })
 
 describe('MeetupList', () => {
@@ -43,11 +58,13 @@ describe('MeetupList', () => {
 
   it("should be able to add meetup to localstorage", async()=>{
     const KEY = "meetup";
-    const VALUE = {name:"My Hero con",date:2022-05-20};
-      const addButton = wrapper.find("#addButton"):
-      const addButton.trigger("");
+    const VALUE = {name:"My Hero con",date:"2022-05-20"};
+      const addButton = wrapper.find("#addButton");
+      addButton.trigger("");
       expect(localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);
       expect(localStorage.__store__[KEY]).toBe(VALUE);
 
-  })
+  });
+
+  it("")
 })

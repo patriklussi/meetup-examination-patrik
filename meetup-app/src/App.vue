@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-
-    <MeetupList msg="Welcome to Your Vue.js App"/>
+   
+    <router-view/>
   </div>
 </template>
 
 <script>
-import MeetupList from './components/MeetupList.vue'
+
 
 export default {
   name: 'App',
   components: {
-    MeetupList
+  
   }
 }
 </script>
