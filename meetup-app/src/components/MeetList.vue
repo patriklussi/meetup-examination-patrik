@@ -24,19 +24,16 @@ export default {
   },
   methods:{
     addToLs(meets){
-  
       
-    let temp = window.localStorage.getItem("meet");
-    const check = JSON.parse(temp);
-    if(check.indexOf(meets)==-1) {
-       this.holderArray.push(meets);
-         window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
+
+    if(this.holderArray.includes(meets)){
+      console.log("suck");
+
+    } else {
+      this.holderArray.push(meets);
     }
-  
- 
-      
-   
-      
+    
+      window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
     }
   }
 }
