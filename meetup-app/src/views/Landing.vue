@@ -1,19 +1,24 @@
 <template>
   <div class="wrapper">
-      <MeetupList/>
+     <MeetList :meetupList="meetupList"/> 
+
   </div>
 </template>
 
 <script>
-import MeetupList from '../components/MeetupList.vue'
+import MeetList from '../components/MeetList.vue'
+
 
 export default {
+    name:"Landing",
+    components:{
+    MeetList,
+ 
+},
     props:{
         meetupList:Array,
     },
-component:{
-    MeetupList,
-}
+
 }
 </script>
 

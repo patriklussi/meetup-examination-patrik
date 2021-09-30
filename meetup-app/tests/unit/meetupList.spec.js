@@ -5,36 +5,27 @@ Docker-container på en molntjänst (Heroku). Användare ska kunna:
 ● recensera en meetup man har varit på
 */
 
-
-
-
-
 import { shallowMount,createLocalVue } from '@vue/test-utils'
-import MeetupList from '@/components/MeetupList.vue'
+import MeetList from '@/components/MeetList.vue'
 import 'jest-localstorage-mock';
 
 import VueRouter from 'vue-router'
 
 const localVue = createLocalVue()
-localVue.use(VueRouter)
-
-
-
-
-
+localVue.use(VueRouter);
 let wrapper,data;
 beforeEach(()=>{
   data = [ {name:"My Hero con",date:"2022-05-20"},{name:"Comic con",date:"2021-11-21"},{name:"Twitch-con",date:"2022-06-12",name:"Worlds 2021",date:"2021-10-05"} ]
-  wrapper = shallowMount("MeetupList",{
+  wrapper = shallowMount("MeetList",{
     data:()=>{
       return {
         meetupList:data,
       }
     
     },
-    localVue,
-    router,
+  
   });
+ 
   localStorage.clear();
   // and reset all mocks
   jest.clearAllMocks();
