@@ -19,21 +19,21 @@ export default {
   },
   data:()=>{
     return {
-      holdeArray:[],
+      holderArray:[],
     }
   },
   methods:{
     addToLs(meets){
-      this.holdeArray.push(meets);
-
+  
+      
     let temp = window.localStorage.getItem("meet");
     const check = JSON.parse(temp);
-   
-    if(check.includes(this.holdeArray)) {
-   
-    } else {
-      window.localStorage.setItem("meet",JSON.stringify(this.holdeArray));
+    if(check.indexOf(meets)==-1) {
+       this.holderArray.push(meets);
+         window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
     }
+  
+ 
       
    
       
