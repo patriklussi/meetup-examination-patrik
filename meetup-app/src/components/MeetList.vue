@@ -2,7 +2,11 @@
   <div class="hello">
       <section class="card-container">
         <h1>Meetups in your area</h1>
-        <article  class="card"  v-for="(meets,index) in meetupList" :key="index"> <h2>{{meets.name}}</h2>  <h5>{{meets.date}}</h5> <button>Sign on for meet</button></article>
+        <article class="mdc-card mdc-card--outlined" v-for="(meets,index) in meetupList" :key="index">
+         <h2>{{meets.name}}</h2> 
+         <h5>{{meets.date}}</h5>
+         <button  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
+         </article>
       </section>
   </div>
 </template>
@@ -12,11 +16,33 @@ export default {
   name: "MeetList",
   props: {
     meetupList:Array,
+  },
+  data:()=>{
+    return {
+      holdeArray:[],
+    }
+  },
+  methods:{
+    addToLs(meets){
+      this.holdeArray.push(meets);
+
+    let temp = window.localStorage.getItem("meet");
+    const check = JSON.parse(temp);
+   
+    if(check.includes(this.holdeArray)) {
+   
+    } else {
+      window.localStorage.setItem("meet",JSON.stringify(this.holdeArray));
+    }
+      
+   
+      
+    }
   }
 }
 
 </script>
-https://material.io/components/cards/web#using-cards
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
@@ -43,9 +69,29 @@ a {
   display: flex;
 
 }
+.mdc-card--outlined{
+    height: 200px;
+  width: 450px;
+  margin:10px;
+  display: flex;
+}
+
+.mdc-card--outlined h2 {
+  margin:0;
+}
+
+.mdc-card--outlined h5 {
+  margin:0;
+}
 .card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+}
+
+.mdc-button {
+  background: #3792cb;
+  color: white;
 }
 </style>

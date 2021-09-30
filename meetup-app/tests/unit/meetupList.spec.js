@@ -49,7 +49,7 @@ describe('MeetupList', () => {
 
   it("should be able to add meetup to localstorage", async()=>{
     const KEY = "meetup";
-    const VALUE = {name:"My Hero con",date:"2022-05-20"};
+    const VALUE = [{name:"My Hero con",date:"2022-05-20"}];
       const addButton = wrapper.find(".addButton");
       addButton.trigger("");
       expect(localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);

@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
-     <MeetList :meetupList="meetupList"/> 
+     <section>
+         <MeetList :meetupList="meetupList"/> 
+     </section>
+    
 
   </div>
 </template>
