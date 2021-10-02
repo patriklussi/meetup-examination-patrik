@@ -35,7 +35,7 @@ describe("Topbar.vue",()=>{
 
        
    
-        expect(wrapperTwo.findComponent(MyProfile).exists()).toBe(true)
+        expect(wrapperTwo.router.push).toHaveBeenCalledTimes(1);
      
      //   expect(wrapper.vm.$route.name).toBe($route.name);
       });
