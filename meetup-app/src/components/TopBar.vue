@@ -1,12 +1,12 @@
 <template>
-  <div class="wrapper">   <header class="mdc-top-app-bar" ><p class="title">MeetUp</p> <p class="buttonOne">Meetups</p> <p @click="toggle" class="buttonTwo">My Meetups</p></header>  </div>
+  <div class="wrapper">   <header class="mdc-top-app-bar" ><p class="title">MeetUp</p> <p class="buttonOne">Meetups</p> <p @click="toggleMyProfile" class="buttonTwo">My Meetups</p></header>  </div>
 </template>
 
 <script>
 export default {
 methods:{
-    toggle(){
-        
+    toggleMyProfile(){
+        this.$router.push("/myprofile");
     }
 }
 }

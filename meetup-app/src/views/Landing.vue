@@ -25,11 +25,7 @@ export default {
     props:{
         meetupList:Array,
     },
-    methods: {
-        toggle(){
-            console.log(this.$route);
-        }
-    }
+    
 
 }
 </script>

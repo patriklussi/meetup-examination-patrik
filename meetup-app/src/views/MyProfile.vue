@@ -11,7 +11,7 @@ import TopBar from "../components/TopBar.vue"
 export default {
     components:{
       MyMeetList,
-      Topbar
+      TopBar,
     },
   data:()=>{
     return {
