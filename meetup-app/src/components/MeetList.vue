@@ -4,7 +4,7 @@
         <h1>Meetups in your area</h1>
         <article class="mdc-card mdc-card--outlined" v-for="(meets,index) in meetupList" :key="index">
          <h2>{{meets.name}}</h2> 
-         <h5>{{meets.date}}</h5>
+         <p>{{meets.date}}</p>
          <button  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
          </article>
       </section>
