@@ -11,8 +11,7 @@ import 'jest-localstorage-mock';
 
 import VueRouter from 'vue-router'
 
-const localVue = createLocalVue()
-localVue.use(VueRouter);
+
 
 let wrapper,data;
 beforeEach(()=>{
@@ -33,9 +32,6 @@ beforeEach(()=>{
 })
   
 
-
-
-  
 
 
 describe('MeetupList', () => {
@@ -60,13 +56,5 @@ describe('MeetupList', () => {
 
   });
 
-  it("Should go to MyProfile page with router", async()=>{
-    const $route = {
-      name:MyProfile,
-    }
-    const pageToggleButton = wrapper.find("#pageToggleButton");
-    pageToggleButton.trigger("")
-
-    expect(wrapper.vm.$route.name).toBe($route.name);
-  });
+ 
 })

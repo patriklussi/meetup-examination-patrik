@@ -1,14 +1,17 @@
 <template>
   <div class="wrapper">
+        <TopBar/>
         <MyMeetList :holderArray="holderArray"/>
   </div>
 </template>
 
 <script>
 import MyMeetList from "../components/MyMeetList.vue";
+import TopBar from "../components/TopBar.vue"
 export default {
     components:{
-      MyMeetList
+      MyMeetList,
+      Topbar
     },
   data:()=>{
     return {
