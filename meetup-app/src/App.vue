@@ -22,12 +22,18 @@ export default {
 </script>
 
 <style>
+body  {
+  margin:0;
+}
+
+
+
 #app {
   font-family: 'Roboto', sans-serif;
  
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 
-
+  width: 100%;
 }
 </style>

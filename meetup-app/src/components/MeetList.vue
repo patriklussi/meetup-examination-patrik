@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
       <section class="card-container">
-        <h1>Meetups in your area</h1>
+       
         <article class="mdc-card mdc-card--outlined" v-for="(meets,index) in meetupList" :key="index">
          <h2>{{meets.name}}</h2> 
          <p>{{meets.date}}</p>
