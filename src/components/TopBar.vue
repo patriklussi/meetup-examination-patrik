@@ -35,23 +35,31 @@ p {
 .title {
     margin-right: auto;
     margin-left: 1rem;
+      transition: transform .1s; /* Animation */
 }
 .title:hover {
        cursor: pointer;
+         transform: scale(1.09);
 }
 .buttonOne {
     margin-right: 1rem;
+     transition: transform .1s; /* Animation */
 }
 
 .buttonOne:hover {
        cursor: pointer;
+       transform: scale(1.09);
+
 }
+
 
 .buttonTwo {
     margin-right: 1rem;
+         transition: transform .1s; /* Animation */
 }
 
 .buttonTwo:hover {
     cursor: pointer;
+    transform: scale(1.09);
 }
 </style>
