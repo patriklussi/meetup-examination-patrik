@@ -51,12 +51,15 @@ describe('MeetupList', () => {
 
   it("should be able to add meetup to localstorage", async()=>{
     const KEY = "meet";
-    const VALUE = [{name:"My Hero con",date:"2022-05-20"}];
+    const BALUE = [{name:"My Hero con",date:"2022-05-20"}];
+      const VALUE = JSON.stringify(BALUE)
       const addButton = wrapper.find("button");
-      await addButton.trigger("");
+      await addButton.trigger("click");
      
       expect(localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);
-      expect(localStorage.__store__[KEY]).toBe(VALUE);
+
+      expect(localStorage.__STORE__[KEY]).toBe(VALUE);
+      expect(Object.keys(localStorage.__STORE__).length).toBe(1);
 
   });
 
