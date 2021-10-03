@@ -1,4 +1,4 @@
-import {mount, createLocalVue } from '@vue/test-utils'
+import{shallowMount, createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import TopBar from "../../src/components/TopBar.vue";
 
@@ -11,7 +11,7 @@ const $router=  {
 
 let wrapper;
 beforeEach(()=>{
-   wrapper = mount(TopBar, {
+   wrapper = shallowMount(TopBar, {
     mocks: {
         $router
       }
@@ -21,11 +21,12 @@ beforeEach(()=>{
 
 describe("Topbar.vue",()=>{
   it("Should check if the MyProfile page with router",async ()=> {
-    const spy = jest.spyOn(TopBar.methods,"toggleMyProfile");
+   const spy = jest.spyOn(wrapper.vm,'toggleMyProfile');
+  
     const button = wrapper.find(".buttonTwo");
-    await button.trigger("click")
-    console.log(spy);
-    expect(spy).toBeCalled();
+   await button.trigger("click")
+
+    expect(spy).toHaveBeenCalled();
 
 
   });
