@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
-    - name: Enter folder idk
-      run: cd .\meetup-app\
     - name: Installed modules
       run: npm install
     - name: run tests
