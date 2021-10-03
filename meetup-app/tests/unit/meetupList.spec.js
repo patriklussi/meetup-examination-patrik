@@ -9,7 +9,7 @@ import { shallowMount,createLocalVue } from '@vue/test-utils'
 import MeetList from '@/components/MeetList.vue'
 import 'jest-localstorage-mock';
 
-import VueRouter from 'vue-router'
+
 
 
 
@@ -18,6 +18,9 @@ beforeEach(()=>{
   data = [ {name:"My Hero con",date:"2022-05-20"},{name:"Comic con",date:"2021-11-21"},{name:"Twitch-con",date:"2022-06-12",name:"Worlds 2021",date:"2021-10-05"} ]
   wrapper = shallowMount(MeetList,{propsData : {
     meetupList:data,
+    mocks: {
+      
+    }
   }});
 
 
@@ -50,9 +53,10 @@ describe('MeetupList', () => {
     const KEY = "meet";
     const VALUE = [{name:"My Hero con",date:"2022-05-20"}];
       const addButton = wrapper.find("button");
-      addButton.trigger("");
-      expect(window.localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);
-      expect(window.localStorage.__store__[KEY]).toBe(VALUE);
+      await addButton.trigger("");
+     
+      expect(localStorage.setItem).toHaveBeenLastCalledWith(KEY,VALUE);
+      expect(localStorage.__store__[KEY]).toBe(VALUE);
 
   });
 

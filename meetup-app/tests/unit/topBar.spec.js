@@ -1,42 +1,60 @@
-import { mount,shallowMount,createLocalVue} from "@vue/test-utils";
+/*
+import {shallowMount, createLocalVue } from '@vue/test-utils'
+import VueRouter from 'vue-router'
 import TopBar from "../../src/components/TopBar.vue";
-import VueRouter  from "vue-router";
-import MyProfile from "../../src/views/MyProfile"
-import { cosh } from "core-js/core/number";
-import App from "../../src/App.vue"
-import routes from "@/router/index.js"
 
-const localVue = createLocalVue()
-localVue.use(VueRouter);
-const router = new VueRouter()
-let wrapper
+//const localVue = createLocalVue()
+//localVue.use(VueRouter)
+
+const $router=  {
+    path:"/myprofile"
+}
+
+let wrapper;
 beforeEach(()=>{
-    wrapper = shallowMount(TopBar,{
-        localVue,
-        router
-    });
+   wrapper = shallowMount(TopBar, {
+    mocks: {
+        $router
+      }
+       
+      })
 })
 
 describe("Topbar.vue",()=>{
-    it("Should go to MyProfile page with router", async()=>{
-        const $route = {
-          name:MyProfile,
-        }
-        const router = new VueRouter({ routes })
-
-        const wrapperTwo = mount(App,{
-            localVue,
-            router
-        })
-   
-        const pageToggleButton = wrapper.find(".buttonTwo");
-
-        await pageToggleButton.trigger("")
-
+    it("Should check if the MyProfile page with router  ", async()=>{
        
-   
-        expect(wrapperTwo.router.push).toHaveBeenCalledTimes(1);
      
-     //   expect(wrapper.vm.$route.name).toBe($route.name);
+    
+        expect(wrapper.vm.$router.path).toBe($router.path)
+
       });
 });
+*/
+
+import { createLocalVue, mount } from '@vue/test-utils'
+import VueRouter from 'vue-router'
+import TopBar from '../../src/components/TopBar.vue';
+import MyProfile from "../../src/views/MyProfile.vue";
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
+
+const routes = [{ path: '/myprofile', component: MyProfile }]
+
+const router = new VueRouter({
+  routes
+})
+
+const wrapper = mount(TopBar, {
+  localVue,
+  router
+})
+
+
+describe("TopBar",()=>{
+    it("Should test router idk", async()=>{
+    const button = wrapper.find(".buttonTwo");
+    await button.trigger("")
+    expect(wrapper.vm.toggleMyProfile()).toBeCalled();
+    })
+})
