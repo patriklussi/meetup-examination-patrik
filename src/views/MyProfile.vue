@@ -30,6 +30,8 @@ export default {
 
 <style scoped>
 
-
+.body {
+    font-family: 'Rubik', sans-serif;
+}
 
 </style>
