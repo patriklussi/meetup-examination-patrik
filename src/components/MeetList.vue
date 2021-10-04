@@ -5,7 +5,9 @@
         <article class="mdc-card mdc-card--outlined" v-for="(meets,index) in meetupList" :key="index">
          <h2>{{meets.name}}</h2> 
          <p>{{meets.date}}</p>
+         <button v-if="toggle" >Cancel</button>
          <button  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
+
          </article>
       </section>
   </div>
@@ -20,13 +22,14 @@ export default {
   data:()=>{
     return {
       holderArray:[],
+     toggle:false,
       
     }
   },
   methods:{
     addToLs(meets){
-     
-
+     console.log(meets.id)
+    this.toggle = true;
     if(this.holderArray.includes(meets)){
       console.log("suck");
 
@@ -35,7 +38,7 @@ export default {
     }
     
       window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
-    this.holderArray= [];
+   
     }
     
   }
