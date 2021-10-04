@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-     <ReviewText v-if="toggler"  :placeHolder="placeHolder"/>
+     <ReviewText v-on:doit="doit" v-if="toggler"  :placeHolder="placeHolder"/>
       <section v-else  class="card-container">
         <article v-for="(meets,index) in holderArray" :key="index" class="mdc-card mdc-card--outlined">
         {{meets.name}}       
@@ -37,6 +37,10 @@ export default {
         this.placeHolder.push(meets);
         console.log(this.placeHolder);
       },
+      doit(){
+        this.toggler = !this.toggler;
+        this.placeHolder = [];
+      }
     
     }
 }

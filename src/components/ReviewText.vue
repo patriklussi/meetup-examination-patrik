@@ -5,10 +5,11 @@
           <article v-for="(meet,index) in placeHolder" :key="index">
               {{meet.name}}
               {{meet.date}}
+             
           </article>
       </section>
 
-     <input placeholder="Write your review" type="text">
+     <input v-model="reviewText" placeholder="Write your review" type="text">
      <button  @click="addReview" class="mdc-button mdc-button--raised">Add your review</button>
   </div>
 </template>
@@ -19,11 +20,20 @@ export default {
         placeHolder:Array,
     },
     data:()=>{
-        
+        return {
+            reviewText:"",
+        }
     },
     methods : {
         addReview(){
-
+         
+            for(let things of this.placeHolder) {
+                things.review = this.reviewText;
+                console.log(things);
+               
+            }
+             window.localStorage.setItem("reviewd",JSON.stringify(this.placeHolder));
+             this.$emit("doit");
         }
     }
 }
