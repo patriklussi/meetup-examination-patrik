@@ -15,7 +15,7 @@ import 'jest-localstorage-mock';
 
 let wrapper,data;
 beforeEach(()=>{
-  data = [ {name:"My Hero con",date:"2022-05-20"},{name:"Comic con",date:"2021-11-21"},{name:"Twitch-con",date:"2022-06-12",name:"Worlds 2021",date:"2021-10-05"} ]
+  data = [ {name:"My Hero con",date:"2022-05-20"},{name:"Comic con",date:"2021-11-21"},{name:"Twitch-con",date:"2022-06-12"},{name:"Worlds 2021",date:"2021-10-05"} ]
   wrapper = shallowMount(MeetList,{propsData : {
     meetupList:data,
     mocks: {

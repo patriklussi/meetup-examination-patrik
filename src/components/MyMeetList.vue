@@ -1,19 +1,43 @@
 <template>
   <div class="wrapper">
-      <section class="card-container">
+     <ReviewText v-if="toggler"  :placeHolder="placeHolder"/>
+      <section v-else  class="card-container">
         <article v-for="(meets,index) in holderArray" :key="index" class="mdc-card mdc-card--outlined">
         {{meets.name}}       
         {{meets.date}}
-        <button  class="mdc-button mdc-button--raised">Add review</button>
+        <button v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         </article>
       </section>
   </div>
 </template>
 
 <script>
+import ReviewText from "./ReviewText.vue";
+
 export default {
+  components : {
+    ReviewText,
+  },
     props:{
         holderArray:Array,
+    },
+    data:()=>{
+      return {
+        toggler:false,
+        placeHolder : [
+
+        ]
+        
+      }
+    },
+    methods:{
+      toggle(meets){
+        this.toggler = !this.toggler;
+       console.log(meets)
+        this.placeHolder.push(meets);
+        console.log(this.placeHolder);
+      },
+    
     }
 }
 </script>
