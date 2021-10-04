@@ -35,7 +35,9 @@ export default {
     }
     
       window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
+    this.holderArray= [];
     }
+    
   }
 }
 
@@ -60,6 +62,9 @@ a {
   color: #42b983;
 }
 
+.hello {
+  display: flex;
+}
 
 .card {
    height: 100px;
@@ -89,6 +94,7 @@ a {
     grid-template-columns: repeat(2,4fr);
     gap: 0.1rem;
     padding: 1rem;
+   
 }
   
 

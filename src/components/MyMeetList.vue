@@ -64,9 +64,10 @@ export default {
   margin:0;
 }
 .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2,4fr);
+    gap: 0.1rem;
+    padding: 1rem;
   
 }
 

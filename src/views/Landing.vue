@@ -33,7 +33,11 @@ export default {
 <style scoped>
 .wrapper {
     margin:0;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
 }
+
 .main-title {
     font-family: 'Rubik', sans-serif;
     margin:1rem;

@@ -33,5 +33,9 @@ export default {
 .body {
     font-family: 'Rubik', sans-serif;
 }
-
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 </style>
