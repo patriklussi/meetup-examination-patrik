@@ -26,7 +26,8 @@ export default {
         toggler:false,
         placeHolder : [
 
-        ]
+        ],
+        review:String,
         
       }
     },
@@ -39,7 +40,7 @@ export default {
       },
       doit(){
         this.toggler = !this.toggler;
-        this.placeHolder = [];
+     this.placeHolder = [];
       }
     
     }
@@ -52,6 +53,7 @@ export default {
   width: 450px;
   margin:10px;
   display: flex;
+  
 }
 
 .mdc-card--outlined h2 {

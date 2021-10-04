@@ -20,11 +20,12 @@ export default {
   data:()=>{
     return {
       holderArray:[],
+      
     }
   },
   methods:{
     addToLs(meets){
-      
+     
 
     if(this.holderArray.includes(meets)){
       console.log("suck");
@@ -58,6 +59,8 @@ li {
 a {
   color: #42b983;
 }
+
+
 .card {
    height: 100px;
   width: 350px;
@@ -70,7 +73,8 @@ a {
     height: 200px;
   width: 450px;
   margin:10px;
-  display: flex;
+
+  padding: 0.5rem;
 }
 
 .mdc-card--outlined h2 {
@@ -81,11 +85,13 @@ a {
   margin:0;
 }
 .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+      display: grid;
+    grid-template-columns: repeat(2,4fr);
+    gap: 0.1rem;
+    padding: 1rem;
 }
+  
+
 
 .mdc-button {
   background: #3792cb;

@@ -24,6 +24,9 @@ export default {
             reviewText:"",
         }
     },
+    mounted:()=>{
+        console.log("supp")
+    },
     methods : {
         addReview(){
          
@@ -32,7 +35,9 @@ export default {
                 console.log(things);
                
             }
-             window.localStorage.setItem("reviewd",JSON.stringify(this.placeHolder));
+            
+
+             window.localStorage.setItem("meet",JSON.stringify(this.placeHolder));
              this.$emit("doit");
         }
     }

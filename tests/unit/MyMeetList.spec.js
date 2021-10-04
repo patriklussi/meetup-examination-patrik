@@ -35,9 +35,12 @@ describe("MyMeetList",()=>{
 
     });
 
-    it("should add a review to the localStorage object of the card", async()=>{
-        const button = wrapper.find("mdc-button");
+    it("should check if review component gets reveald by the destruction and non existens of the section element", async()=>{
+        const section = wrapper.find("section");
+        const button = wrapper.findAll("button");
         await button.trigger("click");
+
+        expect(section.exists()).toBe(false);
         
 
 

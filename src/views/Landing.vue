@@ -1,11 +1,11 @@
 <template>
 
-  <div class="wrapper">
-      <TopBar/>
-     <section>
-          <p class="main-title">Meetups in your area</p>
-         <MeetList :meetupList="meetupList"/> 
-     </section>
+    <div class="wrapper">
+    <TopBar/>
+    <section>
+    <p class="main-title">Meetups in your area</p>
+    <MeetList :meetupList="meetupList"/> 
+    </section>
     
 
   </div>
