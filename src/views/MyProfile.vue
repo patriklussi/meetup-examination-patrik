@@ -16,11 +16,19 @@ export default {
   data:()=>{
     return {
       holderArray:[],
+      holderForFutureArray:[],
     }
   },
   mounted(){
     let temp = window.localStorage.getItem("meet");
     const acutalMeets = JSON.parse(temp);
+    for(let item of acutalMeets){
+    
+ 
+
+   
+      
+    }
     console.log(acutalMeets);
     this.holderArray = acutalMeets;
     console.log("holder",this.holderArray);

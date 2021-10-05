@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h1>Your meetups!</h1>
      <ReviewText v-on:doit="doit" v-if="toggler"  :placeHolder="placeHolder"/>
       <section v-else  class="card-container">
         <article v-for="(meets,index) in holderArray" :key="index" class="mdc-card mdc-card--outlined">
@@ -37,6 +38,7 @@ export default {
        console.log(meets)
         this.placeHolder.push(meets);
         console.log(this.placeHolder);
+        console.log(meets.date);
       },
       doit(){
         this.toggler = !this.toggler;
@@ -48,6 +50,10 @@ export default {
 </script>
 
 <style scoped>
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
 .mdc-card--outlined{
     height: 200px;
   width: 450px;
