@@ -6,10 +6,10 @@
 export default {
 methods:{
     toggleMyProfile(){
-        this.$router.push("/myprofile");
+       this.$emit("toggleThatB");
     },
     toggleToMeetUps(){
-        this.$router.push("/");
+      this.$emit("toggleThatB");
     }
 }
 }

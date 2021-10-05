@@ -2,7 +2,7 @@
   <div class="wrapper">
 
       <section>
-          <article v-for="(meet,index) in placeHolder" :key="index">
+          <article v-for="(meet,index) in reviewArray" :key="index">
               {{meet.name}}
               {{meet.date}}
              
@@ -17,7 +17,7 @@
 <script>
 export default {
     props:{
-        placeHolder:Array,
+        reviewArray:Array,
     },
     data:()=>{
         return {
@@ -38,7 +38,7 @@ export default {
             
 
              window.localStorage.setItem("meet",JSON.stringify(this.placeHolder));
-             this.$emit("doit");
+            
         }
     }
 }

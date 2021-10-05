@@ -23,7 +23,7 @@ export default {
     let temp = window.localStorage.getItem("meet");
     const acutalMeets = JSON.parse(temp);
     for(let item of acutalMeets){
-    
+      console.log(item);
  
 
    
