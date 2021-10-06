@@ -6,7 +6,7 @@
         <article v-for="(meets,index) in placeHolder" :key="index" class="mdc-card mdc-card--outlined">
         <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
-        <p class="review">{{meets.review}}</p>
+         <p class="review">Your review: {{meets.review}}</p>
         <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
      
@@ -82,7 +82,10 @@ body {
   margin: 2rem 0  2rem 0 ;
 }
 
-
+.review {
+  margin:0;
+  margin-right: auto;
+}
 .date {
   font-size: 1.3rem;
   margin-right: auto;
@@ -105,5 +108,7 @@ body {
 .mdc-button {
   background: #3792cb;
   color: white;
+  margin-top: auto;
+  margin-bottom: 1rem;
 }
 </style>
