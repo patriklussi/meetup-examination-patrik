@@ -4,8 +4,8 @@
         <article class="mdc-card mdc-card--outlined" v-for="(meets) in meetupList" :key="meets.id">
          <h2>{{meets.name}}</h2> 
          <p>{{meets.date}}</p>
-         <button  v-if="!holderArray.includes(meets)" @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
-         <button class="mdc-button dissapointment"   v-else @click="removeFunc(meets)" >Cancel</button>
+         <button   @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
+         <button class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
          </article>
       </section>
   </div>
@@ -19,37 +19,21 @@ export default {
   },
   data:()=>{
     return {
-      holderArray:[],
+     
    
-      
+   
     }
-  },
-    mounted(){
-      if(localStorage.meet){
-       this.holderArray = JSON.parse(localStorage.meet);
-       console.log(this.holderArray)
-      }
   },
   
   methods:{
     addToLs(meets){
-      console.log(Date());
-    
-    if(this.holderArray.includes(meets)){
-      console.log("this sucks");
-   
-    } else {
-      this.holderArray.push(meets);
-    }
-      
-     
-      window.localStorage.setItem("meet",JSON.stringify(this.holderArray));
-   
+      this.$emit("addToLs",meets)
+  
     },
     removeFunc(meets){
       console.log(meets);
-      const items = JSON.parse(localStorage.getItem("meet"));
-      console.log(items);
+    
+     
      
 
       
