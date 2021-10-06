@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
-    <p class="title">Meetups near you!</p>
+    <p class="title">Your meetups!</p>
      <ReviewText v-on:closeThisB="close"  v-if="toggler"  :reviewArray="reviewArray"/>
       <section v-else  class="card-container">
         <article v-for="(meets,index) in placeHolder" :key="index" class="mdc-card mdc-card--outlined">
         <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
-         <p class="review">Your review: {{meets.review}}</p>
+         <p placeholder="Write your review" @click="expandText" class="review">{{meets.review}}</p>
         <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
      
@@ -51,6 +51,9 @@ export default {
         this.toggler =!this.toggler;
         this.reviewArray = [];
       },
+      expandText(){
+        console.log("hello");
+      }
      
      
     
@@ -69,11 +72,12 @@ body {
   align-items: center;
 }
 .mdc-card--outlined{
-    height: 200px;
-  width: 450px;
+    height: 250px;
+  width: 100%;
   margin:10px;
   display: flex;
    padding: 0.5rem;
+
   
 }
 .title {
@@ -82,9 +86,13 @@ body {
   margin: 2rem 0  2rem 0 ;
 }
 
+
 .review {
   margin:0;
   margin-right: auto;
+  height: 1rem;
+  width:100%;
+  overflow: hidden;
 }
 .date {
   font-size: 1.3rem;
@@ -99,9 +107,10 @@ body {
 }
 .card-container {
     display: grid;
-    grid-template-columns: repeat(2,4fr);
+    grid-template-columns: repeat(1,4fr);
     gap: 0.1rem;
     padding: 1rem;
+    width:100%;
   
 }
 
@@ -110,5 +119,6 @@ body {
   color: white;
   margin-top: auto;
   margin-bottom: 1rem;
+  width: 25%;
 }
 </style>

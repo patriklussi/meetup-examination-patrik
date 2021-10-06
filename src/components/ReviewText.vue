@@ -2,10 +2,11 @@
   <div class="wrapper">
 
       <section>
-          <article v-for="(meet,index) in reviewArray" :key="index">
+          <article class="mdc-card mdc-card--outlined" v-for="(meet,index) in reviewArray" :key="index">
               {{meet.name}}
               {{meet.date}}
-                 <input v-model="reviewText" placeholder="Write your review" type="text">
+             
+                 <textarea  placeholder="Write your review" class="review-input" v-model="reviewText" name="" id="" cols="30" rows="10"  maxlength="200"></textarea>
      <button  @click="addReview(meet)" class="mdc-button mdc-button--raised">Add your review</button>
           </article>
       </section>
@@ -53,5 +54,18 @@ export default {
 .mdc-button  {
     background: #3792cb;
 }
+
+.mdc-card {
+    height: 400px;
+    width:900px;
+    padding: 1rem;
+}
+
+
+.review-input {
+   
+}
+
+
 
 </style>
