@@ -1,14 +1,15 @@
 <template>
   <div class="wrapper">
-    <h1>Your meetups!</h1>
+    <p class="title">Meetups near you!</p>
      <ReviewText v-on:closeThisB="close"  v-if="toggler"  :reviewArray="reviewArray"/>
       <section v-else  class="card-container">
         <article v-for="(meets,index) in placeHolder" :key="index" class="mdc-card mdc-card--outlined">
-        {{meets.name}}       
-        {{meets.date}}
-        {{meets.review}}
+        <h2 class="name">Name: {{meets.name}}</h2> 
+         <p class="date">Date: {{meets.date}}</p>
+        <p class="review">{{meets.review}}</p>
         <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
+     
 
         </article>
       </section>
@@ -49,7 +50,8 @@ export default {
       close(){
         this.toggler =!this.toggler;
         this.reviewArray = [];
-      }
+      },
+     
      
     
     }
@@ -71,13 +73,24 @@ body {
   width: 450px;
   margin:10px;
   display: flex;
+   padding: 0.5rem;
   
 }
-
-.mdc-card--outlined h2 {
+.title {
+  font-size:4rem;
   margin:0;
+  margin: 2rem 0  2rem 0 ;
 }
 
+
+.date {
+  font-size: 1.3rem;
+  margin-right: auto;
+}
+.name {
+  margin:0;
+  margin-right:auto;
+}
 .mdc-card--outlined h5 {
   margin:0;
 }

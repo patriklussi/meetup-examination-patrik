@@ -25,12 +25,10 @@ export default {
             tempArray:[],
         }
     },
-    mounted:()=>{
-        console.log("supp")
-    },
+   
     methods : {
         addReview(meet){
-          console.log(meet);
+      
          meet.review = this.reviewText;
          const storage = JSON.parse(window.localStorage.getItem("meet"));
          this.tempArray = storage;
@@ -42,7 +40,7 @@ export default {
          }
          
          window.localStorage.setItem("meet",JSON.stringify(this.tempArray));
-        console.log(this.tempArray);
+   
         this.$emit("closeThisB");
            
             
