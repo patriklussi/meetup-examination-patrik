@@ -5,12 +5,12 @@
           <article v-for="(meet,index) in reviewArray" :key="index">
               {{meet.name}}
               {{meet.date}}
-             
+                 <input v-model="reviewText" placeholder="Write your review" type="text">
+     <button  @click="addReview(meet)" class="mdc-button mdc-button--raised">Add your review</button>
           </article>
       </section>
 
-     <input v-model="reviewText" placeholder="Write your review" type="text">
-     <button  @click="addReview" class="mdc-button mdc-button--raised">Add your review</button>
+ 
   </div>
 </template>
 
@@ -22,22 +22,29 @@ export default {
     data:()=>{
         return {
             reviewText:"",
+            tempArray:[],
         }
     },
     mounted:()=>{
         console.log("supp")
     },
     methods : {
-        addReview(){
-         
-            for(let things of this.placeHolder) {
-                things.review = this.reviewText;
-                console.log(things);
-               
+        addReview(meet){
+          console.log(meet);
+         meet.review = this.reviewText;
+         const storage = JSON.parse(window.localStorage.getItem("meet"));
+         this.tempArray = storage;
+         for(let item of this.tempArray){
+            if(item.id ===meet.id) {
+                item.review = this.reviewText;
+                console.log(this.tempArray);
             }
-            
-
-             window.localStorage.setItem("meet",JSON.stringify(this.placeHolder));
+         }
+         
+         window.localStorage.setItem("meet",JSON.stringify(this.tempArray));
+        console.log(this.tempArray);
+        this.$emit("closeThisB");
+           
             
         }
     }

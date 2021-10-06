@@ -4,8 +4,8 @@
         <article class="mdc-card mdc-card--outlined" v-for="(meets) in meetupList" :key="meets.id">
          <h2>{{meets.name}}</h2> 
          <p>{{meets.date}}</p>
-         <button   @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
-         <button class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
+         <button v-if="!meets.signedup"  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
+         <button v-else class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
          </article>
       </section>
   </div>
@@ -27,12 +27,15 @@ export default {
   
   methods:{
     addToLs(meets){
-      this.$emit("addToLs",meets)
+      console.log(meets.signedup);
+      meets.signedup = !meets.signedup;
+      this.$emit("addToLs",meets);
+     
   
     },
     removeFunc(meets){
-      console.log(meets);
-    
+     meets.signedup = !meets.signedup;
+      this.$emit("deleteLs",meets);
      
      
 
