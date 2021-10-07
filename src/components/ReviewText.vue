@@ -36,7 +36,7 @@ export default {
          for(let item of this.tempArray){
             if(item.id ===meet.id) {
                 item.review = this.reviewText;
-                console.log(this.tempArray);
+              
             }
          }
          

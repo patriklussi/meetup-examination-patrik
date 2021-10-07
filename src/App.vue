@@ -39,7 +39,7 @@ export default {
   },
    mounted(){
     const storage = JSON.parse(localStorage.getItem("meet"));
-    console.log(storage);
+ 
 
      
       if (storage !== null) {
@@ -48,7 +48,7 @@ export default {
       const id = evt.id;
       const goingTo =  this.meetupList.find(evt => evt.id === id )
       goingTo.signedup = true
-      console.log(  "going to" , goingTo);
+     
       } ) 
      }
     },

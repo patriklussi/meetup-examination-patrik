@@ -39,7 +39,7 @@ export default {
     mounted(){
       const store = window.localStorage.getItem("meet");
       const getItems = JSON.parse(store);
-      console.log(getItems);
+     
     this.placeHolder = getItems;
      
     },
@@ -48,7 +48,7 @@ export default {
        this.toggler=true;
          this.reviewArray.push(meets);
         
-       console.log(meets)
+    
       },
       close(){
         this.toggler =!this.toggler;
