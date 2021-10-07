@@ -39,7 +39,8 @@ export default {
     mounted(){
       const store = window.localStorage.getItem("meet");
       const getItems = JSON.parse(store);
-   this.placeHolder = getItems;
+      console.log(getItems);
+    this.placeHolder = getItems;
      
     },
     methods:{

@@ -1,30 +1,37 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import MyMeetList from "../../src/components/MyMeetList.vue"
 import 'jest-localstorage-mock';
-import Vue from 'vue';
 
 
 
-const localVue = createLocalVue()
-localVue.use();
+
 
 
 
 
 describe("MyMeetList",()=>{
-    
-let wrapper,data;
+   const data = [ {name:"My Hero con",date:"2019-05-20",id:1,signedup:false,review:""}]
+    const value = JSON.stringify(data);
+    localStorage.setItem("meet",value);
+
+let wrapper;
 beforeEach(()=>{
-    data = [ {name:"My Hero con",date:"2019-05-20",id:1,signedup:false,review:""}]
+let  value = localStorage.getItem("meet")
+   JSON.parse(value);
     wrapper = shallowMount(MyMeetList,{
         data:()=>{
             return {
                 toggler:false,
-                placeHolder:data
+                placeHolder:value
             }
         },
-        localVue
+      
     })
+    
+
+ 
+
+
     
    
 })
@@ -32,8 +39,6 @@ beforeEach(()=>{
 
     it("Should check if there are meetups in list ",()=>{
 
-     
-        window.localStorage.setItem("meet",data);
         const meetupListCount = wrapper.findAll("section > article");
          const meetupList = wrapper.findAll("section > article").wrappers;
          console.log(wrapper.vm.$data.placeHolder);
