@@ -1,15 +1,21 @@
 <template>
-  <div class="wrapper">   <header class="mdc-top-app-bar" ><p class="title">MeetUp</p> <p @click="toggleToMeetUps" class="buttonOne">Meetups</p> <p @click="toggleMyProfile()" class="buttonTwo">My Meetups</p></header>  </div>
+  <header class="mdc-top-app-bar" ><p class="title">MeetUp</p> <p @click="toggleToMeetUps" class="buttonOne">Meetups</p> <p @click="toggleMyProfile()" class="buttonTwo">My Meetups</p>
+    <h3>{{holderArray.length}} </h3>
+  </header>
+
 </template>
 
 <script>
 export default {
+  props: {
+ holderArray:Array,
+  },
 methods:{
     toggleMyProfile(){
-        this.$router.push("/myprofile");
+       this.$emit("toggleThatB");
     },
     toggleToMeetUps(){
-        this.$router.push("/");
+      this.$emit("toggleThat");
     }
 }
 }
@@ -30,7 +36,10 @@ p {
     margin:0;
     font-family: 'Rubik', sans-serif;
 }
-
+h3 {
+  margin-right: 1rem;
+  font-size:1.5rem;
+}
 
 .title {
     margin-right: auto;
