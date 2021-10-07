@@ -6,8 +6,8 @@
               <p class="reviewTitle">{{meet.name}}</p>
               
              
-                <input v-model="reviewText" placeholder="Write your short review"  maxlength="75" type="text">
-     <button  @click="addReview(meet)" class="mdc-button mdc-button--raised">Add your review</button>
+            <input id="sigmaInput" v-model="reviewText" placeholder="Write your short review"  maxlength="75" type="text">
+          <button id="sigma-male" @click="addReview(meet)" class="mdc-button mdc-button--raised">Add your review</button>
           </article>
       </section>
 

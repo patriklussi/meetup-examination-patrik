@@ -1,6 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import MyMeetList from "../../src/components/MyMeetList.vue"
 import 'jest-localstorage-mock';
+import cosh from 'core-js/fn/math/cosh';
+import ReviewText from "../../src/components/ReviewText.vue"
 
 
 
@@ -14,11 +16,13 @@ describe("MyMeetList",()=>{
     const value = JSON.stringify(data);
     localStorage.setItem("meet",value);
 
-let wrapper;
+let wrapper,dataTwo,dataThree;
 beforeEach(()=>{
 let  value = localStorage.getItem("meet")
    JSON.parse(value);
-    wrapper = shallowMount(MyMeetList,{
+   dataTwo =  {name:"My Hero con",date:"2019-05-20",id:1,signedup:false,review:""}
+   dataThree ={name:"My Hero con",date:"2019-05-20",id:1,signedup:false,review:"Succulent chinese meal"}
+    wrapper = mount(MyMeetList,{
         data:()=>{
             return {
                 toggler:false,
@@ -35,31 +39,18 @@ let  value = localStorage.getItem("meet")
     
    
 })
-
-
     it("Should check if there are meetups in list ",()=>{
-
         const meetupListCount = wrapper.findAll("section > article");
-         const meetupList = wrapper.findAll("section > article").wrappers;
-         console.log(wrapper.vm.$data.placeHolder);
-          //  console.log(meetupList);
-         // expect(meetupList).toContain(data);
           expect(meetupListCount.length).toBe(data.length);
-      
+    });
+
+    it("Should check that component reviewtext does not exist",()=>{
+        const rText = wrapper.findComponent(ReviewText);
+        expect(rText.exists()).toBe(false);
 
     });
 
-    it("should check if review component gets while section goes away", async()=>{
-        const section = wrapper.find(".card-container");
+  
+
     
-      
-        const button = wrapper.find("button");
-        await button.trigger("click");
-
-        expect(section.exists()).toBe(false);
-        
-
-    });
-
-
 });

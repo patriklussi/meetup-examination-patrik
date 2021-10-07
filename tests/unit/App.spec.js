@@ -1,6 +1,7 @@
 import { mount,createLocalVue } from '@vue/test-utils'
 import 'jest-localstorage-mock';
 import App from "../../src/App.vue"
+import MeetList from "../../src/components/Meetlist.vue"
 
 
 describe("App.vue",()=>{
@@ -45,5 +46,10 @@ describe("App.vue",()=>{
          expect(localStorage.__STORE__[KEY]).toBe(VALUE);
          expect(Object.keys(localStorage.__STORE__).length).toBe(1);
     });
+
+    it("should check that component meetlist exists",()=>{
+            const meet = wrapper.findComponent(MeetList);
+            expect(meet.exists()).toBe(true);
+    })
 
 });

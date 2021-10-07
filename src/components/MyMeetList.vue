@@ -9,7 +9,7 @@
          <p class="date">Date: {{meets.date}}</p>
          <article class="reviewBox"><p v-if="meets.review" class="artP">Your review:  </p>   &nbsp; <p @click="expandText" class="review">{{meets.review}}</p></article>
         
-        <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
+        <button  v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
      
 
