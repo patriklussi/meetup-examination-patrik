@@ -39,9 +39,6 @@ export default {
   },
    mounted(){
     const storage = JSON.parse(localStorage.getItem("meet"));
- 
-
-     
       if (storage !== null) {
       this.holderArray = storage;
       this.holderArray.forEach(evt => {
