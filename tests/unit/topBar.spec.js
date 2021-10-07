@@ -1,26 +1,16 @@
 import{shallowMount, createLocalVue } from '@vue/test-utils'
-import VueRouter from 'vue-router'
+
 import TopBar from "../../src/components/TopBar.vue";
 
-//const localVue = createLocalVue()
-//localVue.use(VueRouter)
 
-const $router=  {
-    path:"/myprofile"
-}
 
 let wrapper;
 beforeEach(()=>{
-   wrapper = shallowMount(TopBar, {
-    mocks: {
-        $router
-      }
-       
-      })
+   wrapper = shallowMount(TopBar, {})
 })
 
 describe("Topbar.vue",()=>{
-  it("Should check if the MyProfile page with router",async ()=> {
+  it("Should check if the toggle function is called and the components are switched",async ()=> {
    const spy = jest.spyOn(wrapper.vm,'toggleMyProfile');
   
     const button = wrapper.find(".buttonTwo");

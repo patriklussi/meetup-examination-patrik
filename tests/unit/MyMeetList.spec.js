@@ -10,14 +10,6 @@ beforeEach(()=>{
     wrapper = shallowMount(MyMeetList,{propsData:{
         meetUpList: data,
     }})
-
-      
-  localStorage.clear();
-  // and reset all mocks
-  jest.clearAllMocks();
-  
-  // clearAllMocks will impact your other mocks too, so you can optionally reset individual mocks instead:
-  localStorage.setItem.mockClear();
 })
 
 
@@ -35,8 +27,8 @@ describe("MyMeetList",()=>{
 
     });
 
-    it("should check if review component gets reveald by the destruction and non existens of the section element", async()=>{
-        const section = wrapper.find("section");
+    it("should check if review component gets while section goes away", async()=>{
+        const section = wrapper.find("card-container");
         const button = wrapper.findAll("button");
         await button.trigger("click");
 

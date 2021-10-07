@@ -6,7 +6,7 @@
         <article v-for="(meets,index) in placeHolder" :key="index" class="mdc-card mdc-card--outlined">
         <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
-         <p placeholder="Write your review" @click="expandText" class="review">{{meets.review}}</p>
+         <p @click="expandText" class="review">Your review{{meets.review}}</p>
         <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
      
@@ -35,7 +35,7 @@ export default {
       }
     },
     mounted(){
-      const thingy = localStorage.meet;
+      const thingy = window.localStorage.getItems("meet");
       const getItems = JSON.parse(thingy);
       this.placeHolder = getItems;
      
