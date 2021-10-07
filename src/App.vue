@@ -1,9 +1,9 @@
 <template>
   <div id="app">
    
-    <TopBar :holderArray="holderArray" v-on:toggleThatB="toggle"/>
+    <TopBar :holderArray="holderArray" v-on:toggleThat="toggleTwo" v-on:toggleThatB="toggle"/>
 
-    <MeetList  v-on:deleteLs="deleteLs"  v-on:addToLs="addToLs" v-if="home" :meetupList="meetupList"/>
+    <MeetList  v-on:deleteLs="deleteLs"   v-on:addToLs="addToLs" v-if="home" :meetupList="meetupList"/>
     <MyMeetList  v-else/>
    
   </div>
@@ -32,6 +32,7 @@ export default {
        {name:"Ice cream con",date:"2022-02-13",id:7,signedup:false,review:""},
        {name:"Chips con", date:"2023-04-21",id:8,signedup:false,review:""} ],
       home:true,
+      homeTwo:false,
        holderArray:[],
  
       }
@@ -54,8 +55,14 @@ export default {
   methods:{
     
     toggle(){
-      this.home = !this.home;
+      this.home = false;
+     
     },
+    toggleTwo(){
+      this.home = true;
+
+    },
+
     addToLs(meets){
       this.holderArray.push(meets)
     window.localStorage.setItem("meet",JSON.stringify(this.holderArray));

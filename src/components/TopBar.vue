@@ -15,7 +15,7 @@ methods:{
        this.$emit("toggleThatB");
     },
     toggleToMeetUps(){
-      this.$emit("toggleThatB");
+      this.$emit("toggleThat");
     }
 }
 }

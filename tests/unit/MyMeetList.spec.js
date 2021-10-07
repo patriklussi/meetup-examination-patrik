@@ -1,7 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
 import MyMeetList from "../../src/components/MyMeetList.vue"
 import 'jest-localstorage-mock';
-import { json } from 'body-parser';
+
+
 
 
 
@@ -14,18 +15,22 @@ beforeEach(()=>{
     wrapper = shallowMount(MyMeetList,{
         data:()=>{
             return {
-                placeHolder :data
+                toggler:false,
+                placeHolder:data
             }
         }
     })
+    
+   
 })
 
 
     it("Should check if there are meetups in list ",()=>{
-
+     
         const meetupListCount = wrapper.findAll("section > article");
          const meetupList = wrapper.findAll("section > article").wrappers;
-            console.log(meetupList);
+         console.log(wrapper.vm.$data.placeHolder);
+          //  console.log(meetupList);
          // expect(meetupList).toContain(data);
           expect(meetupListCount.length).toBe(data.length);
       
@@ -34,13 +39,13 @@ beforeEach(()=>{
 
     it("should check if review component gets while section goes away", async()=>{
         const section = wrapper.find(".card-container");
-        const button = wrapper.findAll("button");
+    
+      
+        const button = wrapper.find("button");
         await button.trigger("click");
 
         expect(section.exists()).toBe(false);
         
-
-
 
     });
 

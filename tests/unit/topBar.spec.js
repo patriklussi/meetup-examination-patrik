@@ -6,10 +6,10 @@ import TopBar from "../../src/components/TopBar.vue";
 
 describe("Topbar.vue",()=>{
   let wrapper,data;
-  data = 
+  data = [{name:"Comic con",date:"2021-11-21",id:2,signedup:false,review:""}]
 beforeEach(()=>{
    wrapper = shallowMount(TopBar, {propsData:{
-     holderArray:
+     holderArray: data
    }
    })
 })
@@ -24,6 +24,13 @@ beforeEach(()=>{
 
 
   });
+
+  it("Counter should be one",()=>{
+    const h3Counter = wrapper.find("h3");
+    const expected = "1"
+    const text = h3Counter.text();
+    expect(text).toBe(expected);
+  })
   
 });
     

@@ -2,11 +2,13 @@
   <div class="wrapper">
     <p class="title">Your meetups!</p>
      <ReviewText v-on:closeThisB="close"  v-if="toggler"  :reviewArray="reviewArray"/>
-      <section v-else  class="card-container">
+      
+      <section   v-else class="card-container">
         <article v-for="(meets,index) in placeHolder" :key="index" class="mdc-card mdc-card--outlined">
         <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
-         <p @click="expandText" class="review">Your review{{meets.review}}</p>
+         <article class="reviewBox"><p v-if="meets.review" class="artP">Your review:  </p>   &nbsp; <p @click="expandText" class="review">{{meets.review}}</p></article>
+        
         <button v-if="!meets.review" v-on:click="toggle(meets)" class="mdc-button mdc-button--raised">Add review</button>
         <button class="mdc-button mdc-button--raised" @click="toggle(meets)" v-else>Modify review</button>
      
@@ -37,7 +39,7 @@ export default {
     mounted(){
       const store = window.localStorage.getItem("meet");
       const getItems = JSON.parse(store);
-      this.placeHolder = getItems;
+   this.placeHolder = getItems;
      
     },
     methods:{
@@ -73,12 +75,24 @@ body {
 }
 .mdc-card--outlined{
     height: 250px;
-  width: 100%;
+  width: 80%;
   margin:10px;
   display: flex;
    padding: 0.5rem;
 
   
+}
+.artP {
+margin: 0;
+}
+.reviewBox {
+  display:flex;
+  align-items: flex-end;
+  height: 50px;
+  width:90%;
+ word-wrap: break-word;
+
+ 
 }
 .title {
   font-size:4rem;
@@ -88,11 +102,8 @@ body {
 
 
 .review {
-  margin:0;
-  margin-right: auto;
-  height: 1rem;
-  width:100%;
-  overflow: hidden;
+ 
+  margin: 0;
 }
 .date {
   font-size: 1.3rem;

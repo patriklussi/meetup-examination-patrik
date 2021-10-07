@@ -6,7 +6,7 @@
          <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
          <button id="buttonBoy" v-if="!meets.signedup"  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
-         <button v-else class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
+         <button style="background-color:grey;"  v-else class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
          </article>
       </section>
   </div>
