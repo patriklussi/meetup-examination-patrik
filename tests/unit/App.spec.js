@@ -3,8 +3,6 @@ import 'jest-localstorage-mock';
 import App from "../../src/App.vue"
 
 
-
-
 describe("App.vue",()=>{
     let wrapper,data;
         beforeEach(()=>{
