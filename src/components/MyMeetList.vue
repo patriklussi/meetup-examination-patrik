@@ -54,10 +54,7 @@ export default {
         this.toggler =!this.toggler;
         this.reviewArray = [];
       },
-      expandText(){
-        console.log("hello");
-      }
-     
+      
      
     
     }
