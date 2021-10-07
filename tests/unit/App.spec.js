@@ -1,7 +1,7 @@
 import { mount,createLocalVue } from '@vue/test-utils'
 import 'jest-localstorage-mock';
 import App from "../../src/App.vue"
-import MeetList from "../../src/components/Meetlist.vue"
+import MeetList from "../../src/components/MeetList.vue"
 
 
 describe("App.vue",()=>{
