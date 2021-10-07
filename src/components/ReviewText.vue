@@ -62,9 +62,6 @@ export default {
 }
 
 
-.review-input {
-   
-}
 
 
 
