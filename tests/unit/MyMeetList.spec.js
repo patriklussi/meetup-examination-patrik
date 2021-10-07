@@ -1,7 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import MyMeetList from "../../src/components/MyMeetList.vue"
 import 'jest-localstorage-mock';
-import cosh from 'core-js/fn/math/cosh';
 import ReviewText from "../../src/components/ReviewText.vue"
 
 
