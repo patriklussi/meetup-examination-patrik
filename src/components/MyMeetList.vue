@@ -35,8 +35,8 @@ export default {
       }
     },
     mounted(){
-      const thingy = window.localStorage.getItems("meet");
-      const getItems = JSON.parse(thingy);
+      const store = window.localStorage.getItem("meet");
+      const getItems = JSON.parse(store);
       this.placeHolder = getItems;
      
     },

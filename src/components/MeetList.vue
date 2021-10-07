@@ -5,7 +5,7 @@
         <article class="mdc-card mdc-card--outlined" v-for="(meets) in meetupList" :key="meets.id">
          <h2 class="name">Name: {{meets.name}}</h2> 
          <p class="date">Date: {{meets.date}}</p>
-         <button v-if="!meets.signedup"  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
+         <button id="buttonBoy" v-if="!meets.signedup"  @click="addToLs(meets)" class="mdc-button mdc-button--raised">Sign on for meet</button>
          <button v-else class="mdc-button dissapointment"   @click="removeFunc(meets)" >Cancel</button>
          </article>
       </section>
